@@ -78,7 +78,9 @@ export const App = () => {
     return data;
   }, [search, data]);
 
-  const handleClickRow = (value: IData) => setDataItem(value);
+  const handleClickRow = (value: IData) => setDataItem(
+    prevState => prevState?.id === value.id ? null : value
+  );
 
   return (
     <Container>
